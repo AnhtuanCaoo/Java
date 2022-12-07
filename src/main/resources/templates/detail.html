@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <title>Chi tiết</title>
+</head>
+<body>
+<div class="container" style="margin-top: 30px">
+    <a class="btn btn-primary" th:href="@{'/doi-bong'}">Quay lại</a>
+</div>
+<div class="container text-center">
+    <h1>Chi tiết đội bóng</h1>
+</div>
+
+<div class="container info" style="margin-top: 30px ; display: flex; justify-content: space-between">
+    <div class="col-6" th:object="${DoiBong}">
+        <div class="row">
+            <div class="col-4">
+                <p>Tên :</p>
+            </div>
+            <div class="col-6">
+                <input type="text" th:field="*{ten}" class="form-control" disabled minlength="8" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <p>Điểm :</p>
+            </div>
+            <div class="col-6">
+                <input type="text" th:field="*{diem}" class="form-control" disabled minlength="8" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <p>Trang phục :</p>
+            </div>
+            <div class="col-6">
+                <input type="text" th:field="*{trangPhuc}" class="form-control" disabled minlength="8" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <p>Địa chỉ :</p>
+            </div>
+            <div class="col-6">
+                <input type="text" th:field="*{diaChi}" class="form-control" disabled minlength="8" />
+            </div>
+        </div>
+    </div>
+    <div class="col-6" style="margin-bottom: 30px">
+        <div class="col-6">
+            <p>NGÀY THANH TOÁN :</p>
+        </div>
+        <div class="col-6">
+            <input type="text" th:value="${day}" class="form-control" disabled minlength="8" />
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 30px">
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>TT</th>
+            <th>Id</th>
+            <th>Tên trận đấu</th>
+            <th>Số tiền được nhận</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="td, iter: ${TDO}">
+            <tr>
+                <td>[[${iter.index}]]</td>
+                <td>[[${td.id}]]</td>
+                <td>[[${td.ten}]]</td>
+                <td>[[${td.sotien}]]</td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <b>Tổng số tiền cần thanh toán :</b>
+        </div>
+        <div class="col-6">
+            <input type="text" th:value="${grandtotal}" class="form-control" disabled minlength="8" />
+        </div>
+    </div>
+    <div class="test">
+        <a class="btn btn-danger" style="float:right" th:href="@{/xac-nhan}">Xác nhận</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+  <title>Danh sách các đội bóng</title>
+</head>
+<body>
+<div class="container text-center" style="margin-top: 30px">
+  <h1>Danh sách các đội bóng</h1>
+</div>
+<div class="container text-center" style="margin-top: 50px">
+  <div>
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>TT</th>
+        <th>Mã đội</th>
+        <th>Tên đội</th>
+        <th>Tổng số tiền chưa thanh toán</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <th:block th:each="doiBong, iter: ${listDbo}">
+        <tr>
+          <td>[[${iter.index}]]</td>
+          <td>[[${doiBong.id}]]</td>
+          <td>[[${doiBong.ten}]]</td>
+          <td>[[${doiBong.total}]]</td>
+          <td>
+            <a th:href="@{'/doi-bong-detail/' + ${doiBong.id}}">(Click để xem)</a>
+          </td>
+        </tr>
+      </th:block>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+</body>
+</html>
