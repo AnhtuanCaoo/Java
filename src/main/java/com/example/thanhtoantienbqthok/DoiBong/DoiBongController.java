@@ -42,6 +42,7 @@ public class DoiBongController {
                     }
                 }
                 listDbo.add(new DoiBongOne(dd.getId(),dd.getTen(),total));
+                System.out.println(doiBongService.getGiaTienByDoiBongId(1));
             }
             model.addAttribute("listDoiBong",list);
             model.addAttribute("listDbo",listDbo);

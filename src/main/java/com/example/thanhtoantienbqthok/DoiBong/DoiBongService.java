@@ -1,5 +1,7 @@
 package com.example.thanhtoantienbqthok.DoiBong;
 
+import com.example.thanhtoantienbqthok.HopDongTranDau.HopDongTranDauRepository;
+import com.example.thanhtoantienbqthok.PhieuThanhToanDoiBong.PhieuThanhToanDoiBongRepository;
 import com.example.thanhtoantienbqthok.TranDauDoiBong.TranDauDoiBong;
 import com.example.thanhtoantienbqthok.TranDauDoiBong.TranDauDoiBongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,9 @@ import java.util.Optional;
 public class DoiBongService {
     @Autowired DoiBongRepository doiBongRepository;
 
+    @Autowired
+    HopDongTranDauRepository hopDongTranDauRepository;
+
     public Iterable<DoiBong> getAll (){
         return doiBongRepository.findAll();
     }
@@ -24,6 +29,9 @@ public class DoiBongService {
         return doiBongRepository.findById(id);
     }
 
+    public Float getGiaTienByDoiBongId(Integer id) {
+        return hopDongTranDauRepository.findGiaTienByDoiBongId(id);
+    }
 //    public float getAllTranDauDoiBongByDoiBongId(Integer id){
 //        return tranDauDoiBongRepository.findAllById(id);
 //    }

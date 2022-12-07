@@ -17,6 +17,8 @@ public interface DoiBongRepository extends CrudRepository<DoiBong, Integer> {
             value = "SELECT * FROM tbldoibong WHERE id = 1",
             nativeQuery = true)
     DoiBong test();
+
+
 //    TypedQuery<Department> query
 //            = entityManager.createQuery(
 //            "SELECT d FROM Employee e, Department d WHERE e.department = d", Department.class);
