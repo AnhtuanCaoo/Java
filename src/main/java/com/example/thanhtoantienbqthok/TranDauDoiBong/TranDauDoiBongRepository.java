@@ -11,4 +11,6 @@ import java.util.Optional;
 public interface TranDauDoiBongRepository extends CrudRepository<TranDauDoiBong, Integer> {
     public Optional<List<TranDauDoiBong>> findTranDauDoiBongByDoiBongId(Integer id);
 
+
+
 }

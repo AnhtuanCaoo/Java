@@ -53,6 +53,7 @@ public class TranDauDoiBongController {
                     total += hd.giaTien;
                     ngayThanhToan = hd.ngayThanhToan;
                 }
+                System.out.println("tddb" + tranDauDoiBongService.getGiaTienByTranDauDoiBongId(1));
                 listTdo.add(new TranDauDoiBongOne(td.getId(), ten,ngayThanhToan, total));
             }
             float grandtotal = 0;

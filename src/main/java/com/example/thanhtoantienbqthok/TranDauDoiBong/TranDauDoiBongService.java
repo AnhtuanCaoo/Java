@@ -1,6 +1,7 @@
 package com.example.thanhtoantienbqthok.TranDauDoiBong;
 
 import com.example.thanhtoantienbqthok.DoiBong.DoiBong;
+import com.example.thanhtoantienbqthok.HopDongTranDau.HopDongTranDauRepository;
 import com.example.thanhtoantienbqthok.TranDau.TranDau;
 import com.example.thanhtoantienbqthok.TranDau.TranDauRepository;
 import com.example.thanhtoantienbqthok.TranDauDoiBong.*;
@@ -15,9 +16,15 @@ import java.util.Optional;
 @Service
 public class TranDauDoiBongService {
     @Autowired TranDauDoiBongRepository tranDauDoiBongRepository;
+
+    @Autowired
+    HopDongTranDauRepository hopDongTranDauRepository;
     public Optional<List<TranDauDoiBong>> getByDoiBongId(Integer id) {
         return tranDauDoiBongRepository.findTranDauDoiBongByDoiBongId(id);
     }
 
+    public Float getGiaTienByTranDauDoiBongId(Integer id) {
+        return  hopDongTranDauRepository.sumGiaTienByTDDBId(id);
+    }
 
 }
